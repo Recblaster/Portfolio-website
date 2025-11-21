@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Terminal, Hexagon, Zap } from 'lucide-react'; // Import default icon just in case
@@ -135,7 +134,7 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
           
           {/* LEFT COLUMN: Skill Directory */}
           <div className="lg:col-span-7 space-y-12">
-            {Object.entries(categories).map(([category, categorySkills], catIndex) => (
+            {(Object.entries(categories) as [string, Skill[]][]).map(([category, categorySkills], catIndex) => (
               <motion.div 
                 key={category}
                 initial={{ opacity: 0, y: 20 }}

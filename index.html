@@ -44,6 +44,7 @@
         color: #e2e8f0;
         margin: 0;
         overflow-x: hidden;
+        touch-action: manipulation; /* Improved touch response */
       }
       
       /* Hide default cursor globally on non-touch devices to show CustomCursor */
@@ -132,5 +133,7 @@
 </head>
   <body>
     <div id="root"></div>
+    <!-- Link to the main entry file. Requires a bundler (like Vite) to process TSX/JSX. -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>

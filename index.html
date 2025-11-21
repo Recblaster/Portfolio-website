@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NexFolio | AI & Creative Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#0f172a', // Slate 950
+              secondary: '#1e293b', // Slate 800
+              accent: '#06b6d4', // Cyan 500
+              accentHover: '#22d3ee', // Cyan 400
+              techPurple: '#8b5cf6', // Violet 500
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['Fira Code', 'monospace'],
+            },
+            animation: {
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'scan': 'scan 2.5s linear infinite',
+            },
+            keyframes: {
+              scan: {
+                '0%': { top: '0%', opacity: 0 },
+                '10%': { opacity: 1 },
+                '90%': { opacity: 1 },
+                '100%': { top: '100%', opacity: 0 },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #0f172a;
+        color: #e2e8f0;
+        margin: 0;
+        overflow-x: hidden;
+      }
+      
+      /* Hide default cursor globally on non-touch devices to show CustomCursor */
+      /* Using * selector and !important to override browser defaults and tailwind classes like cursor-pointer */
+      @media (hover: hover) and (pointer: fine) {
+        *, *::before, *::after {
+          cursor: none !important;
+        }
+      }
+
+      /* Logic to hide Custom Cursor components on Touch Devices */
+      .desktop-cursor-only {
+        display: none !important;
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        .desktop-cursor-only {
+          display: flex !important;
+        }
+      }
+      
+      /* --- Custom "Laser" Scrollbar --- */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: #020617; /* Darker than body for contrast */
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        /* Gradient: Fades in from top, solid cyan body, bright white tip (sparkle) at bottom */
+        /* Adjusted for more pronounced white tip: Transition starts at 80% and hits pure white at 92% */
+        background: linear-gradient(180deg, rgba(6,182,212,0) 0%, #06b6d4 80%, #ffffff 90%);
+        border-radius: 4px;
+        /* Glow effect */
+        box-shadow: 0 0 10px 1px rgba(6, 182, 212, 0.5);
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        /* Brighter on hover */
+        background: linear-gradient(180deg, rgba(34,211,238,0) 0%, #22d3ee 80%, #ffffff 90%);
+        box-shadow: 0 0 15px 2px rgba(34, 211, 238, 0.8), 0 0 5px 1px rgba(255, 255, 255, 0.5);
+      }
+
+      /* Firefox Fallback */
+      html {
+        scrollbar-width: thin;
+        scrollbar-color: #06b6d4 #020617;
+      }
+
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+
+      /* Internal scrollbars (like in Chat) */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #334155;
+        border-radius: 4px;
+        box-shadow: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.0",
+    "@react-three/drei": "https://aistudiocdn.com/@react-three/drei@^10.7.7",
+    "three": "https://aistudiocdn.com/three@^0.181.2",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "gsap": "https://aistudiocdn.com/gsap@^3.12.5",
+    "animejs": "https://aistudiocdn.com/animejs@^3.2.2"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

@@ -1,7 +1,9 @@
+
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Terminal, Hexagon, Zap } from 'lucide-react'; // Import default icon just in case
 import { Skill } from '../types';
+import TechMarquee from './TechMarquee';
 
 interface SkillsProps {
   skills: Skill[];
@@ -109,7 +111,7 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
       
       <div className="max-w-7xl mx-auto relative">
         {/* Section Header */}
-        <div className="mb-20">
+        <div className="mb-12">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -129,7 +131,20 @@ const Skills: React.FC<SkillsProps> = ({ skills }) => {
             TECHNICAL <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-700">ARSENAL</span>
           </motion.h2>
         </div>
+      </div>
 
+      {/* Marquee Section - Full Width Breakout */}
+      <motion.div
+         initial={{ opacity: 0 }}
+         whileInView={{ opacity: 1 }}
+         viewport={{ once: true }}
+         transition={{ duration: 1 }}
+         className="w-screen relative left-1/2 -translate-x-1/2 mb-16"
+      >
+         <TechMarquee />
+      </motion.div>
+
+      <div className="max-w-7xl mx-auto relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* LEFT COLUMN: Skill Directory */}
